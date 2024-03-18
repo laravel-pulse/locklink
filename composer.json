@@ -1,0 +1,19 @@
+{
+    "name": "laravel-pulse/locklink",
+    "description": "A laravel libery for encription data and url.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "LaravelPulse\\Locklink\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Akramul Hoque",
+            "email": "19862764-akramulhoque@users.noreply.gitlab.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
