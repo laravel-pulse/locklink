@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'LaravelPulse\\Locklink\\' => array($baseDir . '/src'),
+    'LaravelPulse\\LockLink\\' => array($baseDir . '/src'),
 );
