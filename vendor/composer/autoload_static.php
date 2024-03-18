@@ -9,12 +9,12 @@ class ComposerStaticInit48c49014c95bcd0afff68e614da6ee7a
     public static $prefixLengthsPsr4 = array (
         'L' => 
         array (
-            'LaravelPulse\\Locklink\\' => 22,
+            'LaravelPulse\\LockLink\\' => 22,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'LaravelPulse\\Locklink\\' => 
+        'LaravelPulse\\LockLink\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
