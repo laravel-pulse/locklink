@@ -6,8 +6,21 @@ use Illuminate\Support\Facades\Crypt;
 
 class Unlock
 {
-    public static function url($encryptValue = null)
+    /**
+     * @param $encryptValue
+     * @return string
+     */
+    public static function url($encryptValue)
     {
         return Crypt::decrypt($encryptValue);
+    }
+
+    /**
+     * @param $encryptData
+     * @return object
+     */
+    public static function data($encryptData)
+    {
+        return Crypt::decrypt($encryptData);
     }
 }
