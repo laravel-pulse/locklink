@@ -11,9 +11,19 @@
     "authors": [
         {
             "name": "Akramul Hoque",
-            "email": "19862764-akramulhoque@users.noreply.gitlab.com"
+            "email": "akramulhoque.engineer@gmail.com"
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelPulse\\LockLink\\LockLinkServiceProvider"
+            ],
+            "aliases": {
+                "lock-link": "LaravelPulse\\LockLink\\LockLinkFacade"
+            }
+        }
+    }
 }
