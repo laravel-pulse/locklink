@@ -2,16 +2,19 @@
 
 namespace LaravelPulse\LockLink\Support;
 
+use LaravelPulse\LockLink\Actions\Lock;
+use LaravelPulse\LockLink\Actions\Unlock;
 use LaravelPulse\LockLink\Contrib\LockLinkInterface;
 
 class LockLinkService implements LockLinkInterface
 {
-    public function lock()
+    public function lock($data): string
     {
-        return true;
+        return Lock::url($data);
     }
-    public function unlock()
+
+    public function unlock($encryptData): string
     {
-        return true;
+        return Unlock::url($encryptData);
     }
 }
