@@ -28,13 +28,13 @@ This command will Publish default configuration inside config/lock-link.php
 
 ## Usages
 
-#### locklink has 3 types of use case
+#### locklink has 2 types of use case
 
-### 1. Constructing LockLinkInterface
+### case 1: Constructing LockLinkInterface
 
 ```python
 use Illuminate\Http\Request;
-
+// import interface
 use LaravelPulse\LockLink\Contrib\LockLinkInterface;
 
 protected $lockLink;
@@ -76,7 +76,7 @@ public function LockLink(Request $request, $id){
     );
 
     //or
-    $user = $this->lockLink->string($user);
+    $user = $this->lockLink->data($user);
     return $user;
 
     // decryption
@@ -85,6 +85,55 @@ public function LockLink(Request $request, $id){
     return $this->lockLink->unlockData("eyJpdiI6IndnL2JUK1VUVytZQnUveUdJbjhBSmc9PSIsInZhbHVlIjoiR2tJQXFkR245RUN4OC9BMXU2b0pnNHBhZm5WTFh3cWRTR3g2RFhNRWtDNk9nZ3pLOTBUTkE0eEp2MWliekJVVjllcE1KcjFCR1dtLzB3dmg0MzNJQ1NNMEhaTDhGZU04QStYcTJuNkFHZ0xPVkpVSFpFcmc4MjVSYWs5Qi9PRWUiLCJtYWMiOiJhN2Q0MTEyMDlmMWIxMGI2YmUxOTVmNjg5ZWFhNzdjMDE5ZGY3YmQwMWQwYjNkMjg4MzA5YWU5ZWE1ZjQzZGNkIiwidGFnIjoiIn0");
         
 }
+
+### case 2: Using LockLink Trait
+
+'''paython
+// import trait
+use LaravelPulse\LockLink\Contrib\Traits\LockLink;
+
+// use this inside your controller or service class
+use LockLink;
+
+public function LockLink(Request $request, $id){
+
+    $user = User::first();
+    // encrypt id
+    $id = $this->LockId(12);
+    // or
+    $id = $this->LockId($user->id);
+
+    // in the same way you can use
+    // encrypt slug
+    $name = $this->LockString("jhon doe");
+    //or
+    $name = $this->LockString($user->name);
+
+    // in the same way you can use
+    // encrypt url
+
+    $url = $this->LockUrl("locklink.com");
+    //or
+    $url = $this->LockUrl($request->url);
+
+    // in the same way you can use
+    // encrypt data
+    $user = $this->LockData(
+           [
+               'data' => [
+                   'name' => "hello",
+                   'email' => "world@example.com"
+               ]
+           ],
+    );
+
+    //or
+    $user = $this->LockData($user);
+    return $user;
+
+return $this->LockId(12);
+
+'''
 
 
 ## Contributing
