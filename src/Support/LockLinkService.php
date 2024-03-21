@@ -2,8 +2,8 @@
 
 namespace LaravelPulse\LockLink\Support;
 
+use LaravelPulse\LockLink\Actions\Decrypt;
 use LaravelPulse\LockLink\Actions\Encrypt;
-use LaravelPulse\LockLink\Actions\Unlock;
 use LaravelPulse\LockLink\Contrib\LockLinkInterface;
 
 class LockLinkService implements LockLinkInterface
@@ -13,7 +13,7 @@ class LockLinkService implements LockLinkInterface
      * @param int $id
      * @return string
      */
-    public function LockID($id = null): string
+    public function id($id = null): string
     {
         return Encrypt::id($id);
     }
@@ -23,7 +23,7 @@ class LockLinkService implements LockLinkInterface
      * @param string $string
      * @return string
      */
-    public function LockString($string = null): string
+    public function string($string = null): string
     {
         return Encrypt::string($string);
     }
@@ -33,7 +33,7 @@ class LockLinkService implements LockLinkInterface
      * @param string $url
      * @return string
      */
-    public function LockUrl($url = null): string
+    public function url($url = null): string
     {
         return Encrypt::url($url);
     }
@@ -43,25 +43,28 @@ class LockLinkService implements LockLinkInterface
      * @param mixed $data
      * @return string
      */
-    public function LockData($data = null): string
+    public function data($data = null): string
     {
         return Encrypt::data($data);
     }
 
-
-    public function unlock($encryptData = null): string
+    /**
+     * @var \LaravelPulse\LockLink\Actions\Decrypt
+     * @param mixed $encryptString
+     * @return string
+     */
+    public function unlock($encryptString = null): mixed
     {
-        return Unlock::url($encryptData);
+        return Decrypt::String($encryptString);
     }
 
-
-    public function dataLock(mixed $data = null)
+    /**
+     * @var \LaravelPulse\LockLink\Actions\Decrypt
+     * @param mixed $encryptData
+     * @return string
+     */
+    public function unlockData($encryptData = null): mixed
     {
-        // return Lock::data($data);
-    }
-
-    public function dataUnlock(mixed $encryptData = null)
-    {
-        return Unlock::data($encryptData);
+        return Decrypt::Data($encryptData);
     }
 }
