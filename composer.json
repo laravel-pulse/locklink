@@ -26,8 +26,9 @@
     }
   ],
   "require": {
-    "php": "^8.0",
-    "laravel/framework": "^9.11"
+    "php": "^8.2",
+    "laravel/framework": "^11.0",
+    "laravel/tinker": "^2.9"
   },
   "extra": {
     "laravel": {
