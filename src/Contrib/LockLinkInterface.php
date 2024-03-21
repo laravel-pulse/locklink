@@ -9,39 +9,42 @@ interface LockLinkInterface
      * @param int $id
      * @return string
      */
-    public function LockID($id = null): string;
+    public function id($id = null): string;
 
     /**
      * string encryption
      * @param string $string
      * @return string
      */
-    public function LockString($string = null): string;
+    public function string($string = null): string;
 
     /**
      * url encryption
      * @param string $url
      * @return string
      */
-    public function LockUrl($url = null): string;
+    public function url($url = null): string;
 
     /**
      * data encryption
      * @param mixed $data
      * @return string
      */
-    public function LockData($data = null): string;
+    public function data($data = null): string;
 
 
 
     /**
-     * unlock
+     * string decryption
      * @param $encryptData
      * @return string
      */
-    public function unlock($encryptData = null): string;
+    public function unlock($encryptData = null): mixed;
 
-    public function dataLock(mixed $data = null);
-
-    public function dataUnlock(mixed $encryptData = null);
+    /**
+     * data decryption
+     * @param $encryptData
+     * @return mixed
+     */
+    public function unlockData($encryptData = null): mixed;
 }
