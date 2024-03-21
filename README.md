@@ -85,10 +85,11 @@ public function LockLink(Request $request, $id){
     return $this->lockLink->unlockData("eyJpdiI6IndnL2JUK1VUVytZQnUveUdJbjhBSmc9PSIsInZhbHVlIjoiR2tJQXFkR245RUN4OC9BMXU2b0pnNHBhZm5WTFh3cWRTR3g2RFhNRWtDNk9nZ3pLOTBUTkE0eEp2MWliekJVVjllcE1KcjFCR1dtLzB3dmg0MzNJQ1NNMEhaTDhGZU04QStYcTJuNkFHZ0xPVkpVSFpFcmc4MjVSYWs5Qi9PRWUiLCJtYWMiOiJhN2Q0MTEyMDlmMWIxMGI2YmUxOTVmNjg5ZWFhNzdjMDE5ZGY3YmQwMWQwYjNkMjg4MzA5YWU5ZWE1ZjQzZGNkIiwidGFnIjoiIn0");
         
 }
+```
 
 ### case 2: Using LockLink Trait
 
-'''paython
+```paython
 // import trait
 use LaravelPulse\LockLink\Contrib\Traits\LockLink;
 
@@ -131,9 +132,11 @@ public function LockLink(Request $request, $id){
     $user = $this->LockData($user);
     return $user;
 
-return $this->LockId(12);
-
-'''
+    // decryption
+    return $this->Unlock($request->id);
+    return $this->UnlockData($request->encryptuser);
+    
+```
 
 
 ## Contributing
