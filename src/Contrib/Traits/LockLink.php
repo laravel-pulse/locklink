@@ -9,16 +9,57 @@ trait LockLink
     /**
      * @return string
      */
-    public function getLockLink($data)
+    public function LockId($id)
+    {
+        return $this->encrypt($id);
+    }
+
+    /**
+     * @return string
+     */
+    public function LockString($string)
+    {
+        return $this->encrypt($string);
+    }
+
+    /**
+     * @return string
+     */
+    public function LockUrl($url)
+    {
+        return $this->encrypt($url);
+    }
+
+    /**
+     * @return string
+     */
+    public function LockData($data)
     {
         return Crypt::encrypt($data);
     }
 
     /**
+     * @return string
+     */
+    private function encrypt($data)
+    {
+        return Crypt::encryptString($data);
+    }
+
+    /**
      * @return mixed
      */
-    public function getUnlockLink($data)
+    public function Unlock($encryptedString)
     {
-        return Crypt::decrypt($data);
+        return Crypt::decryptString($encryptedString);
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function UnlockData($encryptedData)
+    {
+        return Crypt::decrypt($encryptedData);
     }
 }
