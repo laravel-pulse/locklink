@@ -3,6 +3,17 @@
   "description": "A laravel libery for encription data and url.",
   "type": "library",
   "license": "MIT",
+  "keywords": [
+    "locklink",
+    "lock-link",
+    "LockLink",
+    "encryption",
+    "decryption",
+    "framework",
+    "laravel",
+    "encrypt",
+    "decrypt"
+  ],
   "autoload": {
     "psr-4": {
       "LaravelPulse\\LockLink\\": "src/"
@@ -25,7 +36,8 @@
       ],
       "aliases": {
         "lock-link": "LaravelPulse\\LockLink\\LockLinkFacade"
-      }
+      },
+      "dont-discover": []
     }
   }
 }
